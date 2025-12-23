@@ -1,13 +1,13 @@
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Config Override Config Source with ordinal 399
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application-dev.properties] with ordinal 251
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application.properties] with ordinal 250
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
-13:26:03 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
-13:26:03 DEBUG [or.hi.qu.feature] (Quarkus Main Thread) Hibernate Features Enabled
-13:26:03 DEBUG [or.hi.jp.in.ut.LogHelper] (Quarkus Main Thread) PersistenceUnitInfo [
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Config Override Config Source with ordinal 399
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application-dev.properties] with ordinal 251
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application.properties] with ordinal 250
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+14:15:44 DEBUG [or.hi.qu.feature] (Quarkus Main Thread) Hibernate Features Enabled
+14:15:44 DEBUG [or.hi.jp.in.ut.LogHelper] (Quarkus Main Thread) PersistenceUnitInfo [
 	name: <default>
 	persistence provider classname: null
 	classloader: null
@@ -45,13 +45,13 @@
 		hibernate.id.optimizer.pooled.preferred: pooled-lo
 		hibernate.order_by.default_null_ordering: none
 		jakarta.persistence.validation.mode: AUTO]
-13:26:04 DEBUG [or.hi.Version] (Quarkus Main Thread) HHH000412: Hibernate ORM core version 7.1.11.Final
-13:26:04 DEBUG [or.hi.cf.Environment] (Quarkus Main Thread) HHH000206: 'hibernate.properties' not found
-13:26:04 DEBUG [or.hi.or.boot] (Quarkus Main Thread) Ignoring 0 XML mappings due to `hibernate.xml_mapping_enabled`
-13:26:04 DEBUG [or.hi.or.dialect] (Quarkus Main Thread) HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: 13.0
-13:26:04 DEBUG [or.hi.or.jd.lob] (Quarkus Main Thread) HHH10010002: Disabling contextual LOB creation as connection was null
-13:26:04 DEBUG [or.hi.or.jdbc] (Quarkus Main Thread) HHH100122: Using default JDBC fetch size: -1
-13:26:04 DEBUG [or.hi.or.co.pooling] (Quarkus Main Thread) HHH10001005: Database info:
+14:15:44 DEBUG [or.hi.Version] (Quarkus Main Thread) HHH000412: Hibernate ORM core version 7.1.11.Final
+14:15:44 DEBUG [or.hi.cf.Environment] (Quarkus Main Thread) HHH000206: 'hibernate.properties' not found
+14:15:44 DEBUG [or.hi.or.boot] (Quarkus Main Thread) Ignoring 0 XML mappings due to `hibernate.xml_mapping_enabled`
+14:15:44 DEBUG [or.hi.or.dialect] (Quarkus Main Thread) HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: 13.0
+14:15:44 DEBUG [or.hi.or.jd.lob] (Quarkus Main Thread) HHH10010002: Disabling contextual LOB creation as connection was null
+14:15:44 DEBUG [or.hi.or.jdbc] (Quarkus Main Thread) HHH100122: Using default JDBC fetch size: -1
+14:15:44 DEBUG [or.hi.or.co.pooling] (Quarkus Main Thread) HHH10001005: Database info:
 	Database JDBC URL [undefined/unknown]
 	Database driver: undefined/unknown
 	Database dialect: PostgreSQLDialect
@@ -63,60 +63,79 @@
 	Pool: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-13:26:04 DEBUG [or.hi.id.en.PooledLoOptimizer] (Quarkus Main Thread) HHH000467: Creating pooled optimizer (lo) with [incrementSize=50; returnClass=java.lang.Long]
-13:26:04 DEBUG [or.hi.id.en.PooledLoOptimizer] (Quarkus Main Thread) HHH000467: Creating pooled optimizer (lo) with [incrementSize=50; returnClass=java.lang.Long]
-13:26:04 DEBUG [or.hi.id.en.PooledLoOptimizer] (Quarkus Main Thread) HHH000467: Creating pooled optimizer (lo) with [incrementSize=50; returnClass=java.lang.Long]
-13:26:04 DEBUG [or.in.qu.hi.ca.QuarkusInfinispanRegionFactory] (Quarkus Main Thread) Stop region factory
-13:26:04 DEBUG [or.in.qu.hi.ca.QuarkusInfinispanRegionFactory] (Quarkus Main Thread) Clear region references
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Config Override Config Source with ordinal 399
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application-dev.properties] with ordinal 251
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application.properties] with ordinal 250
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource null:null:ServletConfigSource with ordinal 60
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource null:null:FilterConfigSource with ordinal 50
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource null:ServletContextConfigSource with ordinal 40
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource QuarkusUUIDConfigSource with ordinal -2147483648
-13:26:04 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.jpa.properties.hibernate.format_sql" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.reload-on-restart" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.http.cors" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.micrometer.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.jpa.properties.hibernate.use_sql_comments" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.smallrye-jwt.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.jackson.serialize-dates-as-timestamps" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.health.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:04 DEBUG [io.ne.ch.DefaultChannelId] (Thread-26) -Dio.netty.processId: 73857 (auto-detected)
-13:26:04 DEBUG [io.ne.ch.DefaultChannelId] (Thread-26) -Dio.netty.machineId: fe:40:5f:6c:d3:03:eb:fa (user-set)
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) The "quarkus.log.file.enable" config property is deprecated and should not be used anymore.
-13:26:04 WARN  [io.qu.config] (Quarkus Main Thread) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
-13:26:04 DEBUG [io.ve.co.lo.LoggerFactory] (Quarkus Main Thread) Using io.quarkus.vertx.core.runtime.VertxLogDelegateFactory
-13:26:04 DEBUG [io.ne.ut.ResourceLeakDetector] (Quarkus Main Thread) -Dio.netty.leakDetection.level: simple
-13:26:04 DEBUG [io.ne.ut.ResourceLeakDetector] (Quarkus Main Thread) -Dio.netty.leakDetection.targetRecords: 4
-13:26:04 DEBUG [io.ne.ch.MultithreadEventLoopGroup] (Quarkus Main Thread) -Dio.netty.eventLoopThreads: 24
-13:26:04 DEBUG [io.ne.ut.co.GlobalEventExecutor] (Quarkus Main Thread) -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
-13:26:04 DEBUG [io.ne.ut.in.InternalThreadLocalMap] (Quarkus Main Thread) -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
-13:26:04 DEBUG [io.ne.ut.in.InternalThreadLocalMap] (Quarkus Main Thread) -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
-13:26:04 DEBUG [io.ne.ch.ni.NioEventLoop] (Quarkus Main Thread) -Dio.netty.noKeySetOptimization: false
-13:26:04 DEBUG [io.ne.ch.ni.NioEventLoop] (Quarkus Main Thread) -Dio.netty.selectorAutoRebuildThreshold: 512
-13:26:04 DEBUG [io.ne.ut.in.PlatformDependent] (Quarkus Main Thread) org.jctools-core.MpscChunkedArrayQueue: available
-13:26:04 DEBUG [co.ar.at.jta] (Quarkus Main Thread) Setting up node identifiers '[quarkus]' for which recovery will be performed
-13:26:04 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking system property jakarta.json.provider
-13:26:04 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking ServiceLoader
-13:26:04 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) ServiceLoader loading Facility used; returning object [org.eclipse.parsson.JsonProviderImpl]
-13:26:04 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking system property jakarta.json.provider
-13:26:04 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking ServiceLoader
-13:26:04 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) ServiceLoader loading Facility used; returning object [org.eclipse.parsson.JsonProviderImpl]
-13:26:05 FINE  [or.po.Driver] (agroal-11) Loading driver configuration via classloader jdk.internal.loader.ClassLoaders$AppClassLoader@14dad5dc
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
-13:26:05 DEBUG [or.hi.or.jdbc] (JPA Startup Thread) HHH100016: 'hibernate.connection.provider_disables_autocommit' was enabled. This setting should only be enabled when JDBC Connections obtained by Hibernate from the ConnectionProvider have auto-commit disabled. Enabling this setting when connections have auto-commit enabled leads to execution of SQL operations outside of any JDBC transaction.
-13:26:05 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
+14:15:44 DEBUG [or.hi.id.en.PooledLoOptimizer] (Quarkus Main Thread) HHH000467: Creating pooled optimizer (lo) with [incrementSize=50; returnClass=java.lang.Long]
+14:15:44 DEBUG [or.hi.id.en.PooledLoOptimizer] (Quarkus Main Thread) HHH000467: Creating pooled optimizer (lo) with [incrementSize=50; returnClass=java.lang.Long]
+14:15:44 DEBUG [or.hi.id.en.PooledLoOptimizer] (Quarkus Main Thread) HHH000467: Creating pooled optimizer (lo) with [incrementSize=50; returnClass=java.lang.Long]
+14:15:44 DEBUG [or.in.qu.hi.ca.QuarkusInfinispanRegionFactory] (Quarkus Main Thread) Stop region factory
+14:15:44 DEBUG [or.in.qu.hi.ca.QuarkusInfinispanRegionFactory] (Quarkus Main Thread) Clear region references
+14:15:44 DEBUG [or.hi.va.in.ut.Version] (Quarkus Main Thread) HV000001: Hibernate Validator 9.1.0.Final
+14:15:44 DEBUG [or.hi.va.in.en.AbstractConfigurationImpl] (Quarkus Main Thread) Setting custom LocaleResolver of type io.quarkus.hibernate.validator.runtime.locale.LocaleResolversWrapper
+14:15:44 DEBUG [or.hi.va.in.en.AbstractConfigurationImpl] (Quarkus Main Thread) Setting custom BeanMetaDataClassNormalizer of type io.quarkus.hibernate.validator.runtime.ArcProxyBeanMetaDataClassNormalizer
+14:15:44 DEBUG [or.hi.va.in.en.AbstractConfigurationImpl] (Quarkus Main Thread) Setting custom ConstraintValidatorFactory of type io.quarkus.hibernate.validator.runtime.ArcConstraintValidatorFactoryImpl
+14:15:44 DEBUG [or.hi.va.in.en.AbstractConfigurationImpl] (Quarkus Main Thread) Setting custom TraversableResolver of type io.quarkus.hibernate.validator.runtime.HibernateValidatorRecorder$DelegatingTraversableResolver
+14:15:44 DEBUG [or.hi.va.in.en.AbstractConfigurationImpl] (Quarkus Main Thread) Setting custom ClockProvider of type io.quarkus.hibernate.validator.runtime.clockprovider.RuntimeReinitializedDefaultClockProvider
+14:15:44 DEBUG [or.hi.va.in.en.AbstractConfigurationImpl] (Quarkus Main Thread) HV000002: Ignoring XML configuration.
+14:15:44 DEBUG [or.hi.va.re.PlatformResourceBundleLocator] (Quarkus Main Thread) ValidationMessages not found.
+14:15:44 DEBUG [or.hi.va.re.PlatformResourceBundleLocator] (Quarkus Main Thread) HV000270: Message resource bundle for the en locale is not available and was not pre-loaded.
+14:15:44 DEBUG [or.hi.va.in.en.ValidatorFactoryConfigurationHelper] (Quarkus Main Thread) HV000255: Using io.quarkus.hibernate.validator.runtime.locale.LocaleResolversWrapper as locale resolver.
+14:15:44 DEBUG [or.hi.va.re.PlatformResourceBundleLocator] (Quarkus Main Thread) ContributorValidationMessages not found.
+14:15:44 DEBUG [or.hi.va.re.PlatformResourceBundleLocator] (Quarkus Main Thread) HV000270: Message resource bundle for the en locale is not available and was not pre-loaded.
+14:15:44 DEBUG [or.hi.va.re.PlatformResourceBundleLocator] (Quarkus Main Thread) org.hibernate.validator.ValidationMessages found.
+14:15:44 DEBUG [or.hi.va.me.ResourceBundleMessageInterpolator] (Quarkus Main Thread) Loaded expression factory via original TCCL
+14:15:44 DEBUG [or.hi.va.in.en.ValidatorFactoryConfigurationHelper] (Quarkus Main Thread) HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+14:15:44 DEBUG [or.hi.va.in.en.ValidatorFactoryConfigurationHelper] (Quarkus Main Thread) HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+14:15:44 DEBUG [or.hi.va.in.en.ValidatorFactoryConfigurationHelper] (Quarkus Main Thread) HV000234: Using io.quarkus.hibernate.validator.runtime.HibernateValidatorRecorder$DelegatingTraversableResolver as ValidatorFactory-scoped traversable resolver.
+14:15:44 DEBUG [or.hi.va.in.en.ValidatorFactoryConfigurationHelper] (Quarkus Main Thread) HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+14:15:44 DEBUG [or.hi.va.in.en.ValidatorFactoryConfigurationHelper] (Quarkus Main Thread) HV000234: Using io.quarkus.hibernate.validator.runtime.clockprovider.RuntimeReinitializedDefaultClockProvider as ValidatorFactory-scoped clock provider.
+14:15:44 DEBUG [or.hi.va.in.en.ValidatorFactoryConfigurationHelper] (Quarkus Main Thread) HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Config Override Config Source with ordinal 399
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application-dev.properties] with ordinal 251
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application.properties] with ordinal 250
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource null:null:ServletConfigSource with ordinal 60
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource null:null:FilterConfigSource with ordinal 50
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource null:ServletContextConfigSource with ordinal 40
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource QuarkusUUIDConfigSource with ordinal -2147483648
+14:15:44 DEBUG [io.sm.config] (Quarkus Main Thread) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.jpa.properties.hibernate.format_sql" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.reload-on-restart" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.http.cors" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.micrometer.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.jpa.properties.hibernate.use_sql_comments" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.jackson.serialize-dates-as-timestamps" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.health.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 DEBUG [io.ne.ch.DefaultChannelId] (Thread-26) -Dio.netty.processId: 8206 (auto-detected)
+14:15:45 DEBUG [io.ne.ch.DefaultChannelId] (Thread-26) -Dio.netty.machineId: f1:46:ef:76:92:bf:c3:e8 (user-set)
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) The "quarkus.log.file.enable" config property is deprecated and should not be used anymore.
+14:15:45 WARN  [io.qu.config] (Quarkus Main Thread) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
+14:15:45 DEBUG [io.ve.co.lo.LoggerFactory] (Quarkus Main Thread) Using io.quarkus.vertx.core.runtime.VertxLogDelegateFactory
+14:15:45 DEBUG [io.ne.ut.ResourceLeakDetector] (Quarkus Main Thread) -Dio.netty.leakDetection.level: simple
+14:15:45 DEBUG [io.ne.ut.ResourceLeakDetector] (Quarkus Main Thread) -Dio.netty.leakDetection.targetRecords: 4
+14:15:45 DEBUG [io.ne.ch.MultithreadEventLoopGroup] (Quarkus Main Thread) -Dio.netty.eventLoopThreads: 24
+14:15:45 DEBUG [io.ne.ut.co.GlobalEventExecutor] (Quarkus Main Thread) -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+14:15:45 DEBUG [io.ne.ut.in.InternalThreadLocalMap] (Quarkus Main Thread) -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+14:15:45 DEBUG [io.ne.ut.in.InternalThreadLocalMap] (Quarkus Main Thread) -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+14:15:45 DEBUG [io.ne.ch.ni.NioEventLoop] (Quarkus Main Thread) -Dio.netty.noKeySetOptimization: false
+14:15:45 DEBUG [io.ne.ch.ni.NioEventLoop] (Quarkus Main Thread) -Dio.netty.selectorAutoRebuildThreshold: 512
+14:15:45 DEBUG [io.ne.ut.in.PlatformDependent] (Quarkus Main Thread) org.jctools-core.MpscChunkedArrayQueue: available
+14:15:45 DEBUG [co.ar.at.jta] (Quarkus Main Thread) Setting up node identifiers '[quarkus]' for which recovery will be performed
+14:15:45 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking system property jakarta.json.provider
+14:15:45 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking ServiceLoader
+14:15:45 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) ServiceLoader loading Facility used; returning object [org.eclipse.parsson.JsonProviderImpl]
+14:15:45 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking system property jakarta.json.provider
+14:15:45 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) Checking ServiceLoader
+14:15:45 FINE  [ja.js.sp.JsonProvider] (Quarkus Main Thread) ServiceLoader loading Facility used; returning object [org.eclipse.parsson.JsonProviderImpl]
+14:15:45 FINE  [or.po.Driver] (agroal-11) Loading driver configuration via classloader jdk.internal.loader.ClassLoaders$AppClassLoader@14dad5dc
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
+14:15:45 DEBUG [or.hi.or.jdbc] (JPA Startup Thread) HHH100016: 'hibernate.connection.provider_disables_autocommit' was enabled. This setting should only be enabled when JDBC Connections obtained by Hibernate from the ConnectionProvider have auto-commit disabled. Enabling this setting when connections have auto-commit enabled leads to execution of SQL operations outside of any JDBC transaction.
+14:15:45 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
@@ -143,13 +162,13 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
-13:26:05 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
+14:15:45 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
+14:15:45 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
@@ -176,13 +195,13 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
-13:26:05 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
+14:15:45 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
+14:15:45 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
@@ -209,13 +228,13 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
-13:26:05 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
+14:15:45 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
+14:15:45 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
@@ -242,13 +261,13 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
-13:26:05 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
+14:15:45 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
+14:15:45 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
@@ -275,13 +294,13 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
-13:26:05 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
-13:26:05 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
-13:26:05 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
+14:15:45 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connecting with URL: jdbc:postgresql://db.rpkqbesfgjdeolketoug.supabase.co:5432/postgres?sslmode=require
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11) PostgreSQL JDBC Driver 42.7.8
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setDefaultFetchSize = 0
+14:15:45 FINE  [or.po.jd.PgConnection] (agroal-11)   setPrepareThreshold = 5
+14:15:45 FINE  [or.po.co.v3.ConnectionFactoryImpl] (agroal-11) Trying to establish a protocol version 3 connection to db.rpkqbesfgjdeolketoug.supabase.co:5432
+14:15:45 FINE  [or.po.Driver] (agroal-11) Connection error: : org.postgresql.util.PSQLException: The connection attempt failed.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
@@ -308,10 +327,10 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
-13:26:05 WARN  [or.hi.or.jd.error] (JPA Startup Thread) HHH000247: ErrorCode: 0, SQLState: 08001
-13:26:05 WARN  [or.hi.or.jd.error] (JPA Startup Thread) The connection attempt failed.
-13:26:05 DEBUG [or.hi.or.jd.error] (JPA Startup Thread) Unable to obtain isolated JDBC connection [n/a]: org.postgresql.util.PSQLException: The connection attempt failed.
+14:15:45 WARN  [io.ag.pool] (agroal-11) Datasource '<default>': The connection attempt failed.
+14:15:45 WARN  [or.hi.or.jd.error] (JPA Startup Thread) HHH000247: ErrorCode: 0, SQLState: 08001
+14:15:45 WARN  [or.hi.or.jd.error] (JPA Startup Thread) The connection attempt failed.
+14:15:45 DEBUG [or.hi.or.jd.error] (JPA Startup Thread) Unable to obtain isolated JDBC connection [n/a]: org.postgresql.util.PSQLException: The connection attempt failed.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
@@ -338,7 +357,7 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 WARN  [or.hi.en.jd.en.in.JdbcEnvironmentInitiator] (JPA Startup Thread) HHH000342: Could not obtain connection to query JDBC database metadata: org.hibernate.exception.JDBCConnectionException: Unable to obtain isolated JDBC connection [The connection attempt failed.] [n/a]
+14:15:45 WARN  [or.hi.en.jd.en.in.JdbcEnvironmentInitiator] (JPA Startup Thread) HHH000342: Could not obtain connection to query JDBC database metadata: org.hibernate.exception.JDBCConnectionException: Unable to obtain isolated JDBC connection [The connection attempt failed.] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:80)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
@@ -397,9 +416,9 @@ Caused by: java.net.SocketException: Network is unreachable
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
 	... 12 more
 
-13:26:05 DEBUG [or.hi.or.jd.lob] (JPA Startup Thread) HHH10010002: Disabling contextual LOB creation as connection was null
-13:26:05 DEBUG [or.hi.or.jdbc] (JPA Startup Thread) HHH100122: Using default JDBC fetch size: -1
-13:26:05 DEBUG [or.hi.or.co.pooling] (JPA Startup Thread) HHH10001005: Database info:
+14:15:45 DEBUG [or.hi.or.jd.lob] (JPA Startup Thread) HHH10010002: Disabling contextual LOB creation as connection was null
+14:15:45 DEBUG [or.hi.or.jdbc] (JPA Startup Thread) HHH100122: Using default JDBC fetch size: -1
+14:15:45 DEBUG [or.hi.or.co.pooling] (JPA Startup Thread) HHH10001005: Database info:
 	Database JDBC URL [undefined/unknown]
 	Database driver: undefined/unknown
 	Database dialect: PostgreSQLDialect
@@ -411,8 +430,8 @@ Caused by: java.net.SocketException: Network is unreachable
 	Pool: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-13:26:05 DEBUG [or.hi.or.beans] (Quarkus Main Thread) HHH10005004: Stopping BeanContainer: io.quarkus.hibernate.orm.runtime.cdi.QuarkusArcBeanContainer@33210819
-13:26:05 ERROR [io.qu.ru.Application] (Quarkus Main Thread) Failed to start application: java.lang.RuntimeException: Failed to start quarkus
+14:15:45 DEBUG [or.hi.or.beans] (Quarkus Main Thread) HHH10005004: Stopping BeanContainer: io.quarkus.hibernate.orm.runtime.cdi.QuarkusArcBeanContainer@5ad9354d
+14:15:45 ERROR [io.qu.ru.Application] (Quarkus Main Thread) Failed to start application: java.lang.RuntimeException: Failed to start quarkus
 	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
 	at io.quarkus.runtime.Application.start(Application.java:101)
 	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:119)
@@ -446,196 +465,50 @@ See the migration guide for more details and how to proceed.
 	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:95)
 	... 5 more
 
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource Config Override Config Source with ordinal 399
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application-dev.properties] with ordinal 251
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application.properties] with ordinal 250
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:ServletConfigSource with ordinal 60
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:FilterConfigSource with ordinal 50
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:ServletContextConfigSource with ordinal 40
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource QuarkusUUIDConfigSource with ordinal -2147483648
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.jpa.properties.hibernate.format_sql" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.reload-on-restart" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.http.cors" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.micrometer.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.jpa.properties.hibernate.use_sql_comments" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.smallrye-jwt.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.jackson.serialize-dates-as-timestamps" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.health.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-13:26:05 INFO  [io.qu.de.de.IsolatedDevModeMain] (main) Attempting to start live reload endpoint to recover from previous Quarkus startup failure
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:ServletConfigSource with ordinal 60
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:FilterConfigSource with ordinal 50
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:ServletContextConfigSource with ordinal 40
-13:26:05 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
-13:26:05 DEBUG [io.ne.ut.NetUtil] (vert.x-eventloop-thread-0) -Djava.net.preferIPv4Stack: false
-13:26:05 DEBUG [io.ne.ut.NetUtil] (vert.x-eventloop-thread-0) -Djava.net.preferIPv6Addresses: false
-13:26:05 DEBUG [io.ne.ut.NetUtilInitializations] (vert.x-eventloop-thread-0) Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
-13:26:05 DEBUG [io.ne.ut.NetUtil] (vert.x-eventloop-thread-0) /proc/sys/net/core/somaxconn: 4096
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.numHeapArenas: 24
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.numDirectArenas: 24
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.pageSize: 8192
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.maxOrder: 3
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.chunkSize: 65536
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.smallCacheSize: 256
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.normalCacheSize: 64
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.maxCachedBufferCapacity: 32768
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.cacheTrimInterval: 8192
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.cacheTrimIntervalMillis: 0
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.useCacheForAllThreads: false
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
-13:26:05 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: true
-13:26:05 DEBUG [io.ne.bu.ByteBufUtil] (vert.x-eventloop-thread-0) -Dio.netty.allocator.type: pooled
-13:26:05 DEBUG [io.ne.bu.ByteBufUtil] (vert.x-eventloop-thread-0) -Dio.netty.threadLocalDirectBufferSize: 0
-13:26:05 DEBUG [io.ne.bu.ByteBufUtil] (vert.x-eventloop-thread-0) -Dio.netty.maxThreadLocalCharBufferSize: 16384
-13:26:05 DEBUG [io.ne.bo.ChannelInitializerExtensions] (vert.x-eventloop-thread-0) -Dio.netty.bootstrap.extensions: null
-13:26:05 DEBUG [ja.la.Runtime] (main) Runtime.exit() called with status: 1: java.lang.Throwable: Runtime.exit(1)
-	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179)
-	at java.base/java.lang.Shutdown.exit(Shutdown.java:160)
-	at java.base/java.lang.Runtime.exit(Runtime.java:177)
-	at java.base/java.lang.System.exit(System.java:1540)
-	at io.quarkus.deployment.dev.IsolatedDevModeMain.firstStart(IsolatedDevModeMain.java:144)
-	at io.quarkus.deployment.dev.IsolatedDevModeMain.accept(IsolatedDevModeMain.java:432)
-	at io.quarkus.deployment.dev.IsolatedDevModeMain.accept(IsolatedDevModeMain.java:55)
-	at io.quarkus.bootstrap.app.CuratedApplication.runInCl(CuratedApplication.java:143)
-	at io.quarkus.bootstrap.app.CuratedApplication.runInAugmentClassLoader(CuratedApplication.java:98)
-	at io.quarkus.deployment.dev.DevModeMain.start(DevModeMain.java:106)
-	at io.quarkus.deployment.dev.DevModeMain.main(DevModeMain.java:68)
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Running: [stty, -F, /dev/pts/4, -a]
-13:26:05 FINE  [or.ae.re.te.ut.ShutdownHooks] (Aesh Shutdown Hook) Running all shutdown-hook tasks
-13:26:05 FINE  [or.ae.re.te.ut.ShutdownHooks] (Aesh Shutdown Hook) Running task: 
-13:26:05 FINE  [or.ae.re.te.ut.ShutdownHooks] (Aesh Shutdown Hook) Removing shutdown-hook: 
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Aesh Shutdown Hook) Running: [stty, -F, /dev/pts/4, -a]
-13:26:05 DEBUG [ja.la.ProcessBuilder] (Aesh Shutdown Hook) ProcessBuilder.start(): pid: 74127, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
-	at org.aesh.readline.terminal.impl.ExecPty.doGetConfig(ExecPty.java:245)
-	at org.aesh.readline.terminal.impl.ExecPty.getAttr(ExecPty.java:131)
-	at org.aesh.readline.terminal.impl.ExecPty.setAttr(ExecPty.java:153)
-	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.close(AbstractPosixTerminal.java:69)
-	at org.aesh.readline.terminal.impl.PosixSysTerminal.close(PosixSysTerminal.java:68)
-	at org.aesh.readline.terminal.utils.ShutdownHooks.runTasks(ShutdownHooks.java:68)
-	at org.aesh.readline.terminal.utils.ShutdownHooks.access$000(ShutdownHooks.java:34)
-	at org.aesh.readline.terminal.utils.ShutdownHooks$1.run(ShutdownHooks.java:49)
-
-13:26:05 DEBUG [ja.la.ProcessBuilder] (Console Shutdown Hook) ProcessBuilder.start(): pid: 74126, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
-	at org.aesh.readline.terminal.impl.ExecPty.doGetConfig(ExecPty.java:245)
-	at org.aesh.readline.terminal.impl.ExecPty.getAttr(ExecPty.java:131)
-	at org.aesh.readline.terminal.impl.ExecPty.setAttr(ExecPty.java:153)
-	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.setAttributes(AbstractPosixTerminal.java:54)
-	at org.aesh.readline.tty.terminal.TerminalConnection.setAttributes(TerminalConnection.java:180)
-	at io.quarkus.deployment.console.AeshConsole.end(AeshConsole.java:167)
-	at io.quarkus.deployment.console.AeshConsole.lambda$setup$2(AeshConsole.java:303)
-	at org.aesh.readline.tty.terminal.TerminalConnection.close(TerminalConnection.java:346)
-	at io.quarkus.deployment.console.AeshConsole$2.run(AeshConsole.java:88)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Aesh Shutdown Hook) Result: speed 38400 baud; rows 30; columns 120; line = 0;
-intr = <undef>; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>;
-eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
-werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
--parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
--ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr -icrnl -ixon -ixoff
--iuclc -ixany -imaxbel -iutf8
-opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
-isig -icanon -iexten -echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
-echoctl echoke -flusho -extproc
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Result: speed 38400 baud; rows 30; columns 120; line = 0;
-intr = <undef>; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>;
-eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
-werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
--parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
--ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr -icrnl -ixon -ixoff
--iuclc -ixany -imaxbel -iutf8
-opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
-isig -icanon -iexten -echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
-echoctl echoke -flusho -extproc
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Aesh Shutdown Hook) Running: [stty, -F, /dev/pts/4, icrnl, ixon, echo, icanon, iexten, intr, ^C]
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Running: [stty, -F, /dev/pts/4, icrnl, ixon, echo, icanon, iexten, intr, ^C]
-13:26:05 DEBUG [ja.la.ProcessBuilder] (Aesh Shutdown Hook) ProcessBuilder.start(): pid: 74129, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
-	at org.aesh.readline.terminal.impl.ExecPty.setAttr(ExecPty.java:210)
-	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.close(AbstractPosixTerminal.java:69)
-	at org.aesh.readline.terminal.impl.PosixSysTerminal.close(PosixSysTerminal.java:68)
-	at org.aesh.readline.terminal.utils.ShutdownHooks.runTasks(ShutdownHooks.java:68)
-	at org.aesh.readline.terminal.utils.ShutdownHooks.access$000(ShutdownHooks.java:34)
-	at org.aesh.readline.terminal.utils.ShutdownHooks$1.run(ShutdownHooks.java:49)
-
-13:26:05 DEBUG [ja.la.ProcessBuilder] (Console Shutdown Hook) ProcessBuilder.start(): pid: 74130, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
-	at org.aesh.readline.terminal.impl.ExecPty.setAttr(ExecPty.java:210)
-	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.setAttributes(AbstractPosixTerminal.java:54)
-	at org.aesh.readline.tty.terminal.TerminalConnection.setAttributes(TerminalConnection.java:180)
-	at io.quarkus.deployment.console.AeshConsole.end(AeshConsole.java:167)
-	at io.quarkus.deployment.console.AeshConsole.lambda$setup$2(AeshConsole.java:303)
-	at org.aesh.readline.tty.terminal.TerminalConnection.close(TerminalConnection.java:346)
-	at io.quarkus.deployment.console.AeshConsole$2.run(AeshConsole.java:88)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Aesh Shutdown Hook) Result: 
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Result: 
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Running: [stty, -F, /dev/pts/4, -a]
-13:26:05 DEBUG [ja.la.ProcessBuilder] (Console Shutdown Hook) ProcessBuilder.start(): pid: 74131, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
-	at org.aesh.readline.terminal.impl.ExecPty.doGetConfig(ExecPty.java:245)
-	at org.aesh.readline.terminal.impl.ExecPty.getAttr(ExecPty.java:131)
-	at org.aesh.readline.terminal.impl.ExecPty.setAttr(ExecPty.java:153)
-	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.setAttributes(AbstractPosixTerminal.java:54)
-	at org.aesh.readline.tty.terminal.TerminalConnection.close(TerminalConnection.java:354)
-	at io.quarkus.deployment.console.AeshConsole$2.run(AeshConsole.java:88)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Result: speed 38400 baud; rows 30; columns 120; line = 0;
-intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>;
-eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
-werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
--parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
--ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff
--iuclc -ixany -imaxbel -iutf8
-opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
-isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
-echoctl echoke -flusho -extproc
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Running: [stty, -F, /dev/pts/4, -a]
-13:26:05 DEBUG [ja.la.ProcessBuilder] (Console Shutdown Hook) ProcessBuilder.start(): pid: 74132, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
-	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
-	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
-	at org.aesh.readline.terminal.impl.ExecPty.doGetConfig(ExecPty.java:245)
-	at org.aesh.readline.terminal.impl.ExecPty.getAttr(ExecPty.java:131)
-	at org.aesh.readline.terminal.impl.ExecPty.setAttr(ExecPty.java:153)
-	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.close(AbstractPosixTerminal.java:69)
-	at org.aesh.readline.terminal.impl.PosixSysTerminal.close(PosixSysTerminal.java:68)
-	at org.aesh.readline.tty.terminal.TerminalConnection.close(TerminalConnection.java:355)
-	at io.quarkus.deployment.console.AeshConsole$2.run(AeshConsole.java:88)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-
-13:26:05 FINE  [or.ae.re.te.im.ExecPty] (Console Shutdown Hook) Result: speed 38400 baud; rows 30; columns 120; line = 0;
-intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>;
-eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
-werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
--parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
--ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff
--iuclc -ixany -imaxbel -iutf8
-opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
-isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
-echoctl echoke -flusho -extproc
-
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource Config Override Config Source with ordinal 399
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application-dev.properties] with ordinal 251
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=file:/home/joaopedro/workflow-engine/target/classes/application.properties] with ordinal 250
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:ServletConfigSource with ordinal 60
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:FilterConfigSource with ordinal 50
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:ServletContextConfigSource with ordinal 40
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource QuarkusUUIDConfigSource with ordinal -2147483648
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+14:15:45 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.jpa.properties.hibernate.format_sql" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.reload-on-restart" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.http.cors" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.micrometer.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.jpa.properties.hibernate.use_sql_comments" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.jackson.serialize-dates-as-timestamps" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 WARN  [io.qu.config] (main) Unrecognized configuration key "quarkus.health.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+14:15:45 INFO  [io.qu.de.de.IsolatedDevModeMain] (main) Attempting to start live reload endpoint to recover from previous Quarkus startup failure
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:ServletConfigSource with ordinal 60
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:null:FilterConfigSource with ordinal 50
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource null:ServletContextConfigSource with ordinal 40
+14:15:45 DEBUG [io.sm.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+14:15:45 DEBUG [io.ne.ut.NetUtil] (vert.x-eventloop-thread-1) -Djava.net.preferIPv4Stack: false
+14:15:45 DEBUG [io.ne.ut.NetUtil] (vert.x-eventloop-thread-1) -Djava.net.preferIPv6Addresses: false
+14:15:45 DEBUG [io.ne.ut.NetUtilInitializations] (vert.x-eventloop-thread-1) Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+14:15:45 DEBUG [io.ne.ut.NetUtil] (vert.x-eventloop-thread-1) /proc/sys/net/core/somaxconn: 4096
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.numHeapArenas: 24
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.numDirectArenas: 24
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.pageSize: 8192
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.maxOrder: 3
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.chunkSize: 65536
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.smallCacheSize: 256
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.normalCacheSize: 64
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.cacheTrimInterval: 8192
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.useCacheForAllThreads: false
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+14:15:45 DEBUG [io.ne.bu.PooledByteBufAllocator] (vert.x-eventloop-thread-1) -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: true
+14:15:45 DEBUG [io.ne.bu.ByteBufUtil] (vert.x-eventloop-thread-1) -Dio.netty.allocator.type: pooled
+14:15:45 DEBUG [io.ne.bu.ByteBufUtil] (vert.x-eventloop-thread-1) -Dio.netty.threadLocalDirectBufferSize: 0
+14:15:45 DEBUG [io.ne.bu.ByteBufUtil] (vert.x-eventloop-thread-1) -Dio.netty.maxThreadLocalCharBufferSize: 16384
+14:15:45 DEBUG [io.ne.bo.ChannelInitializerExtensions] (vert.x-eventloop-thread-1) -Dio.netty.bootstrap.extensions: null
