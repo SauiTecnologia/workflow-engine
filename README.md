@@ -1,91 +1,241 @@
-# workflow-engine
+# 🚀 Workflow Service - Motor de Kanban
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Microserviço Quarkus que gerencia um **Kanban configurável** com suporte a múltiplos tipos de entidades, regras dinâmicas baseadas em JSON e integração com serviços de notificação.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+## ✨ Características Principais
 
-## Running the application in dev mode
+- **Arquitetura em Camadas** - Controller → Service → Command → Repository
+- **5 Design Patterns** - Repository, Strategy, Command, Observer, Circuit Breaker
+- **Validações em Cascata** - 5 níveis de validação (entrada, autorização, negócio, execução, notificação)
+- **Configurável via JSON** - Transições, permissões e layouts definidos no banco
+- **Histórico de Operações** - Via Command Pattern
+- **Event-Driven** - Observer Pattern para notificações desacopladas
+- **Type-Safe** - Exceções customizadas específicas
+- **Resiliente** - Circuit Breaker para falhas de serviços externos
 
-You can run your application in dev mode that enables live coding using:
+## 📊 Estrutura
 
-```shell script
+```
+30 classes Java
+├── 3 Entidades JPA
+├── 3 Repositories
+├── 3 Validadores (Strategies)
+├── 4 Comandos
+├── 3 Eventos
+├── 1 Serviço
+├── 1 Controller
+├── 6 Exceções
+├── 3 DTOs
+└── 1 Segurança
+```
+
+## 🗄️ Entidades
+
+### Pipeline
+Kanban board para um contexto específico (ex: edital-123)
+
+### PipelineColumn
+Coluna com regras dinâmicas em JSONB:
+- `transition_rules_json` - Transições permitidas
+- `notification_rules_json` - Regras de notificação
+- `card_layout_json` - Layout do card
+- `allowed_roles_*` - Permissões por role
+
+### PipelineCard
+Card representando uma entidade (projeto, avaliação, etc)
+
+## 🔄 Fluxo: Mover Card
+
+```
+POST /api/pipelines/{id}/cards/{cardId}/move
+  ↓
+WorkflowController (JWT) → WorkflowService
+  ↓
+MoveCardCommand.execute()
+  ├─ PermissionValidator.canMoveOut() ✓
+  ├─ PermissionValidator.canMoveIn() ✓
+  ├─ TransitionValidator.validateTransition() ✓
+  ├─ EntityTypeValidator.validateEntityType() ✓
+  ├─ CardRepository.persist()
+  ↓
+WorkflowEventManager
+  ├─ NotificationDispatcher.onCardMoved()
+  └─ AuditEventDispatcher.onCardMoved()
+  ↓
+HTTP 200 OK
+```
+
+## 🚀 Quick Start (Com Supabase)
+
+### 1. Configurar Variáveis de Ambiente
+
+```bash
+# Copiar template
+cp .env.example .env
+
+# Editar com suas credenciais Supabase
+nano .env
+```
+
+Variáveis necessárias:
+```env
+SUPABASE_PROJECT_ID=seu_project_id
+SUPABASE_PASSWORD=sua_database_password
+```
+
+👉 Veja [SUPABASE_CREDENTIALS_GUIDE.md](./SUPABASE_CREDENTIALS_GUIDE.md) para obter credenciais
+
+### 2. Carregar Variáveis
+
+```bash
+source .env  # Linux/Mac
+# ou configure manualmente no Windows
+```
+
+### 3. Criar Schema no Supabase
+
+```bash
+# 1. Acesse https://app.supabase.com
+# 2. Vá para SQL Editor
+# 3. Execute o script em SUPABASE_SETUP.md (seção 4.2)
+```
+
+### 4. Rodar em Desenvolvimento
+
+```bash
 ./mvnw quarkus:dev
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
-
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-./mvnw package
+Esperado:
+```
+Listening on: http://localhost:8080
+Connection to PostgreSQL successful
 ```
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+### 5. Testar
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+```bash
+# Verificar saúde
+curl http://localhost:8080/q/health/live
 
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
+# Chamar API (requer JWT)
+curl -X GET http://localhost:8080/api/pipelines/1 \
+  -H "Authorization: Bearer {seu_jwt_token}"
 ```
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+👉 Veja [QUICKSTART_SUPABASE.md](./QUICKSTART_SUPABASE.md) para guia em 5 minutos
 
-## Creating a native executable
+## 📚 Documentação
 
-You can create a native executable using:
+| Documento | Descrição |
+|-----------|-----------|
+| **SUMARIO.md** | 📋 Resumo executivo |
+| **WORKFLOW_SERVICE.md** | 📖 Documentação técnica completa |
+| **ESTRUTURA.md** | 🗂️ Mapa de arquivos e responsabilidades |
+| **GETTING_STARTED.md** | 🚀 Como executar e troubleshooting |
+| **FILES_MANIFEST.md** | 📦 Manifesto detalhado de arquivos |
+| **QUICKSTART_SUPABASE.md** | ⚡ Quick Start em 5 minutos |
+| **SUPABASE_SETUP.md** | 🔧 Configuração completa do Supabase |
+| **SUPABASE_CREDENTIALS_GUIDE.md** | 🔑 Como obter credenciais Supabase |
+| **SUPABASE_CONFIG_SUMMARY.md** | 📊 Resumo de configuração |
+| **CODE_QUALITY_REPORT.md** | ✅ Análise de qualidade de código |
+| **DEVELOPMENT_GUIDE.md** | 👨‍💻 Guia de desenvolvimento |
 
-```shell script
-./mvnw package -Dnative
+## 🎯 Padrões Implementados
+
+### Repository Pattern
+- `PipelineRepository` - CRUD + queries
+- `PipelineColumnRepository` - Buscar colunas
+- `PipelineCardRepository` - Buscar cards
+
+### Strategy Pattern
+- `PermissionValidator` - Validar roles
+- `TransitionValidator` - Validar transições (JSON)
+- `EntityTypeValidator` - Validar tipos de entidade
+
+### Command Pattern
+- `MoveCardCommand` - Encapsula movimento com validações
+- `CommandExecutor` - Executor com histórico
+- `CommandResult` - Resultado com sucesso/erro
+
+### Observer Pattern
+- `WorkflowEventManager` - Gerenciador de eventos
+- `WorkflowEventListener` - Interface para observadores
+- `CardMovedEvent` - Evento disparado
+
+## 📦 Build
+
+### Desenvolvimento
+```bash
+./mvnw quarkus:dev
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
+### Produção (JVM)
+```bash
+./mvnw clean package
+java -jar target/quarkus-app/quarkus-run.jar
 ```
 
-You can then execute your native executable with: `./target/workflow-engine-1.0.0-SNAPSHOT-runner`
+### Nativo (GraalVM)
+```bash
+./mvnw package -Pnative
+./target/workflow-engine-1.0.0-SNAPSHOT-runner
+```
 
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
+### Docker
+```bash
+docker build -f src/main/docker/Dockerfile.jvm -t workflow-service:latest .
+docker run -p 8080:8080 workflow-service:latest
+```
 
-## Related Guides
+## 🔐 Segurança
 
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplify your persistence code for Hibernate ORM via the active record or the repository pattern
-- Quarkus Extension for Spring Web API ([guide](https://quarkus.io/guides/spring-web)): Use Spring Web annotations to create your REST services
-- SmallRye Health ([guide](https://quarkus.io/guides/smallrye-health)): Monitor service health
-- Kubernetes ([guide](https://quarkus.io/guides/kubernetes)): Generate Kubernetes resources from annotations
-- JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
+- JWT validation via `JwtValidator`
+- Role-based access control
+- Validações em múltiplas camadas
 
-## Provided Code
+## 🧪 Testes
 
-### Hibernate ORM
+Em desenvolvimento. Estrutura preparada para:
+- Testes unitários (Service, Validator, Command)
+- Testes de integração (Controller, Repository)
+- Testes E2E (Fluxo completo)
 
-Create your first JPA entity
+## 📈 Status
 
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
+✅ **Implementado:**
+- Arquitetura em camadas
+- Entidades JPA e Repositories
+- Validadores (Strategies)
+- Command Pattern
+- Event System
+- REST API
+- Security framework
+- SQL schema com dados
 
-[Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
+🔜 **Próximo:**
+- NotificationDispatcher
+- AuditEventDispatcher
+- Testes
+- CI/CD
 
+## 🛠️ Tecnologias
 
-### RESTEasy JAX-RS
+- **Framework:** Quarkus
+- **ORM:** Hibernate + Panache
+- **Banco:** PostgreSQL (Supabase)
+- **Padrões:** Repository, Strategy, Command, Observer, Circuit Breaker
+- **Java:** 17+
 
-Easily start your RESTful Web Services
+## 📞 Documentação
 
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+Para dúvidas, consulte:
+- `SUMARIO.md` - Resumo executivo
+- `WORKFLOW_SERVICE.md` - Detalhes técnicos
+- `GETTING_STARTED.md` - Como executar
 
-### SmallRye Health
+---
 
-Monitor your application's health using SmallRye Health
-
-[Related guide section...](https://quarkus.io/guides/smallrye-health)
-
-### Spring Web
-
-Spring, the Quarkus way! Start your REST Web Services with a Spring Controller.
-
-[Related guide section...](https://quarkus.io/guides/spring-web#greetingcontroller)
+**Última atualização:** 22 de dezembro de 2025  
+**Status:** Pronto para desenvolvimento  
+**Tempo até produção:** 3-5 dias com equipe de 2 devs
