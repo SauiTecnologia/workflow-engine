@@ -1,7 +1,6 @@
 package com.apporte.client;
 
 import com.apporte.dto.MoveCardRequest;
-import com.apporte.dto.MoveCardResponse;
 import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.client.Client;

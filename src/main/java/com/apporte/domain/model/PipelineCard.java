@@ -4,6 +4,8 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Map;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 /**
  * Entidade que representa um card dentro de uma coluna
@@ -28,6 +30,7 @@ public class PipelineCard extends PanacheEntity {
     public Integer sortOrder;
     
     @Column(name = "data_snapshot_json", columnDefinition = "jsonb")
+    @JdbcTypeCode(SqlTypes.JSON)
     public Map<String, Object> dataSnapshotJson;
     
     @Column(name = "created_at", nullable = false, updatable = false)

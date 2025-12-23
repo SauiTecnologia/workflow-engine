@@ -4,6 +4,8 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Map;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 /**
  * Entidade que representa um Pipeline (Kanban board)
@@ -22,9 +24,11 @@ public class Pipeline extends PanacheEntity {
     public String contextId;    // ex: "edital-123"
     
     @Column(name = "allowed_roles_view", columnDefinition = "jsonb")
+    @JdbcTypeCode(SqlTypes.JSON)
     public Map<String, Object> allowedRolesView;
     
     @Column(name = "allowed_roles_manage", columnDefinition = "jsonb")
+    @JdbcTypeCode(SqlTypes.JSON)
     public Map<String, Object> allowedRolesManage;
     
     @Column(name = "created_at", nullable = false, updatable = false)

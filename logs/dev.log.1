@@ -1,0 +1,60 @@
+12:39:01 FINE  [or.ae.re.te.im.ExecPty] (SIGWINCH handler) Running: [stty, -F, /dev/pts/3, size]
+12:39:01 FINE  [or.ae.re.te.im.ExecPty] (SIGWINCH handler) Running: [stty, -F, /dev/pts/3, size]
+12:39:02 DEBUG [ja.la.ProcessBuilder] (SIGWINCH handler) ProcessBuilder.start(): pid: 58104, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
+	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
+	at org.aesh.readline.terminal.impl.ExecPty.getSize(ExecPty.java:230)
+	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.getSize(AbstractPosixTerminal.java:62)
+	at org.aesh.readline.tty.terminal.TerminalConnection.size(TerminalConnection.java:288)
+	at org.aesh.readline.tty.terminal.TerminalConnection.lambda$init$2(TerminalConnection.java:137)
+	at org.aesh.readline.terminal.impl.AbstractTerminal.raise(AbstractTerminal.java:70)
+	at org.aesh.readline.terminal.impl.PosixSysTerminal.lambda$new$0(PosixSysTerminal.java:45)
+	at org.aesh.readline.terminal.utils.Signals$1.invoke(Signals.java:58)
+	at jdk.proxy2/jdk.proxy2.$Proxy38.handle(Unknown Source)
+	at jdk.unsupported/sun.misc.Signal$InternalMiscHandler.handle(Signal.java:198)
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+12:39:02 DEBUG [ja.la.ProcessBuilder] (SIGWINCH handler) ProcessBuilder.start(): pid: 58105, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
+	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
+	at org.aesh.readline.terminal.impl.ExecPty.getSize(ExecPty.java:230)
+	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.getSize(AbstractPosixTerminal.java:62)
+	at org.aesh.readline.tty.terminal.TerminalConnection.size(TerminalConnection.java:288)
+	at org.aesh.readline.tty.terminal.TerminalConnection.lambda$init$2(TerminalConnection.java:137)
+	at org.aesh.readline.terminal.impl.AbstractTerminal.raise(AbstractTerminal.java:70)
+	at org.aesh.readline.terminal.impl.PosixSysTerminal.lambda$new$0(PosixSysTerminal.java:45)
+	at org.aesh.readline.terminal.utils.Signals$1.invoke(Signals.java:58)
+	at jdk.proxy2/jdk.proxy2.$Proxy38.handle(Unknown Source)
+	at jdk.unsupported/sun.misc.Signal$InternalMiscHandler.handle(Signal.java:198)
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+12:39:02 FINE  [or.ae.re.te.im.ExecPty] (SIGWINCH handler) Result: 14 146
+
+12:39:02 FINE  [or.ae.re.te.im.ExecPty] (SIGWINCH handler) Result: 14 146
+
+12:39:02 FINE  [or.ae.re.te.im.ExecPty] (SIGWINCH handler) Running: [stty, -F, /dev/pts/3, size]
+12:39:02 DEBUG [ja.la.ProcessBuilder] (SIGWINCH handler) ProcessBuilder.start(): pid: 58108, dir: null, cmd: "stty": java.lang.RuntimeException: ProcessBuilder.start() debug
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1099)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
+	at org.aesh.readline.terminal.impl.ExecPty.exec(ExecPty.java:456)
+	at org.aesh.readline.terminal.impl.ExecPty.getSize(ExecPty.java:230)
+	at org.aesh.readline.terminal.impl.AbstractPosixTerminal.getSize(AbstractPosixTerminal.java:62)
+	at org.aesh.readline.tty.terminal.TerminalConnection.size(TerminalConnection.java:288)
+	at io.quarkus.deployment.console.AeshConsole.setup(AeshConsole.java:206)
+	at io.quarkus.deployment.console.AeshConsole.lambda$setup$3(AeshConsole.java:304)
+	at org.aesh.readline.tty.terminal.TerminalConnection.lambda$init$2(TerminalConnection.java:137)
+	at org.aesh.readline.terminal.impl.AbstractTerminal.raise(AbstractTerminal.java:70)
+	at org.aesh.readline.terminal.impl.PosixSysTerminal.lambda$new$0(PosixSysTerminal.java:45)
+	at org.aesh.readline.terminal.utils.Signals$1.invoke(Signals.java:58)
+	at jdk.proxy2/jdk.proxy2.$Proxy38.handle(Unknown Source)
+	at jdk.unsupported/sun.misc.Signal$InternalMiscHandler.handle(Signal.java:198)
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+12:39:02 FINE  [or.ae.re.te.im.ExecPty] (SIGWINCH handler) Result: 14 146
+
+12:39:02 FINE  [or.ae.re.te.im.ExecPty] (SIGWINCH handler) Running: [stty, -F, /dev/pts/3, -a]

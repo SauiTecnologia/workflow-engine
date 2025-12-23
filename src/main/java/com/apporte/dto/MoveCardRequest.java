@@ -1,7 +1,6 @@
 package com.apporte.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 /**
  * DTO para requisição de movimento de card.

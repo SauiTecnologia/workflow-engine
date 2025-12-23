@@ -1,7 +1,5 @@
 package com.apporte.domain.event;
 
-import com.apporte.domain.model.UserContext;
-
 /**
  * Interface para observers de eventos de workflow
  * Implementa Observer Pattern
