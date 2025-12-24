@@ -233,9 +233,3 @@ Para dúvidas, consulte:
 - `SUMARIO.md` - Resumo executivo
 - `WORKFLOW_SERVICE.md` - Detalhes técnicos
 - `GETTING_STARTED.md` - Como executar
-
----
-
-**Última atualização:** 22 de dezembro de 2025  
-**Status:** Pronto para desenvolvimento  
-**Tempo até produção:** 3-5 dias com equipe de 2 devs
