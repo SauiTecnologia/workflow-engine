@@ -1,0 +1,382 @@
+# #name: CI/CD - Workflow Engine
+
+# #on:
+#   #push:
+#     #branches: [main, develop]
+#     #tags:
+#       #- 'v*.*.*'           # Semantic versions (v1.0.0)
+#       #- 'v*.*.*-*'         # Pre-releases (v1.0.0-beta.1)
+#   #pull_request:
+#     #branches: [main, develop]
+#   #workflow_dispatch:
+#     #inputs:
+#       #environment:
+#         #description: "Environment to deploy"
+#         #required: true
+#         #type: choice
+#         #options: [dev, prod]
+#       #skip_tests:
+#         #description: "Skip tests"
+#         #required: false
+#         #type: boolean
+#         #default: false
+#       #skip_deployment:
+#         #description: "Skip deployment (build only)"
+#         #required: false
+#         #type: boolean
+#         #default: false
+
+# #concurrency:
+#   #group: workflow-engine-${{ github.event.inputs.environment || (github.ref == #'refs/heads/main' && 'prod' || 'dev') }}
+#   #cancel-in-progress: false
+
+# #permissions:
+#   #contents: read
+#   #packages: write
+
+# #env:
+#   #REGISTRY: registry.digitalocean.com/saui-main-registry
+#   #IMAGE_NAME: workflow-engine
+#   #JAVA_VERSION: '21'
+#   #JAVA_DISTRIBUTION: 'temurin'
+
+# #jobs:
+#   #test:
+#     #name: Test
+#     #runs-on: ubuntu-latest
+#     #if: ${{ !inputs.skip_tests }}
+#     #timeout-minutes: 10
+    
+#     #steps:
+#       #- name: Checkout code
+#         #uses: actions/checkout@v4
+
+#       #- name: Set up JDK ${{ env.JAVA_VERSION }}
+#         #uses: actions/setup-java@v4
+#         #with:
+#           #java-version: ${{ env.JAVA_VERSION }}
+#           #distribution: ${{ env.JAVA_DISTRIBUTION }}
+#           #cache: maven
+
+#       #- name: Run tests
+#         #run: ./mvnw clean test -B
+
+#       #- name: Generate coverage report
+#         #if: success()
+#         #run: ./mvnw jacoco:report -B
+
+#       #- name: Upload coverage reports
+#         #if: success()
+#         #uses: actions/upload-artifact@v4
+#         #with:
+#           #name: coverage-reports
+#           #path: target/site/jacoco/
+#           #retention-days: 7
+
+#   #build:
+#     #name: Build & Push
+#     #needs: [test]
+#     #if: always() && (needs.test.result == 'success' || needs.test.result == 'skipped')
+#     #runs-on: ubuntu-latest
+#     #timeout-minutes: 20
+#     #outputs:
+#       #image_tag: ${{ steps.vars.outputs.image_tag }}
+#       #environment: ${{ steps.vars.outputs.environment }}
+#       #full_image: ${{ steps.vars.outputs.full_image }}
+    
+#     #steps:
+#       #- name: Checkout code
+#         #uses: actions/checkout@v4
+
+#       #- name: Determine deployment variables
+#         #id: vars
+#         #run: |
+#           ## Determine environment
+#           #if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+#             #ENV="${{ inputs.environment }}"
+#           #elif [ "${{ github.event_name }}" = "pull_request" ]; then
+#             #ENV="dev"
+#             #echo "::notice::PR detected - defaulting to dev environment"
+#           #elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
+#             #ENV="prod"
+#           #else
+#             #ENV="dev"
+#           #fi
+          
+#           ## Safety check: production deployment from non-main branch
+#           #if [ "$ENV" = "prod" ] && [ "${{ github.ref }}" != "refs/heads/main" ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+#             #echo "::error::❌ Production deployment blocked: not on main branch"
+#             #exit 1
+#           #fi
+          
+#           ## Generate image tag
+#           #if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+#             #TAG="${{ github.ref_name }}"
+#           #else
+#             #TAG="${{ github.sha }}"
+#             #TAG="${TAG:0:7}"
+#           #fi
+          
+#           #FULL_IMAGE="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${TAG}"
+          
+#           #echo "environment=${ENV}" >> $GITHUB_OUTPUT
+#           #echo "image_tag=${TAG}" >> $GITHUB_OUTPUT
+#           #echo "full_image=${FULL_IMAGE}" >> $GITHUB_OUTPUT
+          
+#           #echo "::notice::Environment: ${ENV}"
+#           #echo "::notice::Image tag: ${TAG}"
+#           #echo "::notice::Full image: ${FULL_IMAGE}"
+
+#       #- name: Set up JDK ${{ env.JAVA_VERSION }}
+#         #uses: actions/setup-java@v4
+#         #with:
+#           #java-version: ${{ env.JAVA_VERSION }}
+#           #distribution: ${{ env.JAVA_DISTRIBUTION }}
+#           #cache: maven
+
+#       #- name: Build with Maven
+#         #run: ./mvnw clean package -DskipTests -B
+
+#       #- name: Install doctl
+#         #uses: digitalocean/action-doctl@v2
+#         #with:
+#           #token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+#       #- name: Log in to DigitalOcean Container Registry
+#         #run: doctl registry login
+
+#       #- name: Set up Docker Buildx
+#         #uses: docker/setup-buildx-action@v3
+
+#       #- name: Build and push Docker image
+#         #uses: docker/build-push-action@v5
+#         #with:
+#           #context: .
+#           #file: src/main/docker/Dockerfile.jvm
+#           #push: true
+#           #tags: |
+#             #${{ steps.vars.outputs.full_image }}
+#             #${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.environment }}
+#             #${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+#           #cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
+#           #cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
+#           #labels: |
+#             #org.opencontainers.image.source=${{ github.repositoryUrl }}
+#             #org.opencontainers.image.revision=${{ github.sha }}
+#             #org.opencontainers.image.created=${{ github.event.head_commit.timestamp }}
+
+#       #- name: Image scan for vulnerabilities
+#         #if: success()
+#         #continue-on-error: true
+#         #run: |
+#           #echo "::notice::Scanning image for vulnerabilities..."
+#           #docker pull ${{ steps.vars.outputs.full_image }}
+#           #docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+#             #aquasec/trivy image --severity HIGH,CRITICAL \
+#             #--exit-code 0 \
+#             #${{ steps.vars.outputs.full_image }} || echo "::warning::Vulnerabilities found"
+
+#   #deploy:
+#     #name: Deploy to ${{ needs.build.outputs.environment }}
+#     #needs: [build]
+#     #if: ${{ !inputs.skip_deployment && github.event_name != 'pull_request' }}
+#     #runs-on: ubuntu-latest
+#     #timeout-minutes: 15
+#     #environment:
+#       #name: ${{ needs.build.outputs.environment }}
+#       #url: ${{ needs.build.outputs.environment == 'prod' && 'https://api.apporte.work/api/workflow' || 'https://api.apporte.dev/api/workflow' }}
+    
+#     #steps:
+#       #- name: Checkout code
+#         #uses: actions/checkout@v4
+
+#       #- name: Set deployment variables
+#         #id: vars
+#         #run: |
+#           #ENV="${{ needs.build.outputs.environment }}"
+#           #TAG="${{ needs.build.outputs.image_tag }}"
+          
+#           #if [ "$ENV" = "prod" ]; then
+#             #echo "namespace=apporte-workflow-prod" >> $GITHUB_OUTPUT
+#             #echo "url=https://api.apporte.work/api/workflow" >> $GITHUB_OUTPUT
+#           #else
+#             #echo "namespace=apporte-workflow-dev" >> $GITHUB_OUTPUT
+#             #echo "url=https://api.apporte.dev/api/workflow" >> $GITHUB_OUTPUT
+#           #fi
+          
+#           #echo "environment=${ENV}" >> $GITHUB_OUTPUT
+#           #echo "image_tag=${TAG}" >> $GITHUB_OUTPUT
+
+#       #- name: Install doctl
+#         #uses: digitalocean/action-doctl@v2
+#         #with:
+#           #token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+#       #- name: Install Helm
+#         #uses: azure/setup-helm@v4
+#         #with:
+#           #version: "3.14.0"
+
+#       #- name: Configure kubectl
+#         #run: |
+#           #doctl kubernetes cluster kubeconfig save saui-k8s
+#           #kubectl cluster-info
+#           #kubectl get nodes
+
+#       #- name: Validate Helm chart
+#         #run: |
+#           #helm lint charts/
+#           #echo "::notice::✅ Helm chart is valid"
+
+#       #- name: Deploy with Helm
+#         #id: deployment
+#         #timeout-minutes: 10
+#         #run: |
+#           #ENV="${{ steps.vars.outputs.environment }}"
+          
+#           #echo "::group::Deploying to ${ENV}"
+          
+#           #helm upgrade --install workflow-engine ./charts \
+#             #--namespace ${{ steps.vars.outputs.namespace }} \
+#             #--create-namespace \
+#             #--values charts/values-${ENV}.yaml \
+#             #--set image.tag=${{ steps.vars.outputs.image_tag }} \
+#             #--set secrets.database.password="${{ secrets.DB_PASSWORD }}" \
+#             #--set secrets.keycloak.clientSecret="${{ secrets.KEYCLOAK_CLIENT_SECRET }}" \
+#             #--wait --timeout 8m
+          
+#           #echo "::endgroup::"
+#           #echo "::notice::✅ Helm deployment complete"
+
+#       #- name: Wait for rollout
+#         #timeout-minutes: 5
+#         #run: |
+#           #echo "::group::Waiting for deployment rollout"
+#           #kubectl rollout status deployment/workflow-engine \
+#             #-n ${{ steps.vars.outputs.namespace }} \
+#             #--timeout=5m
+#           #echo "::endgroup::"
+
+#       #- name: Verify pods
+#         #run: |
+#           #echo "::group::Pod status"
+#           #kubectl get pods -n ${{ steps.vars.outputs.namespace }} \
+#             #-l app.kubernetes.io/name=workflow-engine
+#           #echo "::endgroup::"
+
+#       #- name: Health check
+#         #id: health_check
+#         #timeout-minutes: 3
+#         #run: |
+#           #echo "::group::Running health checks"
+          
+#           ## Wait a bit for app to fully start
+#           #sleep 30
+          
+#           ## Get pod name
+#           #POD=$(kubectl get pod -n ${{ steps.vars.outputs.namespace }} \
+#             #-l app.kubernetes.io/name=workflow-engine \
+#             #-o jsonpath='{.items[0].metadata.name}')
+          
+#           #echo "Testing pod: $POD"
+          
+#           ## Test liveness
+#           #echo "Testing /q/health/live..."
+#           #kubectl exec -n ${{ steps.vars.outputs.namespace }} $POD -- \
+#             #curl -f -s http://localhost:8080/q/health/live || {
+#               #echo "::error::Liveness check failed"
+#               #exit 1
+#             #}
+          
+#           ## Test readiness
+#           #echo "Testing /q/health/ready..."
+#           #kubectl exec -n ${{ steps.vars.outputs.namespace }} $POD -- \
+#             #curl -f -s http://localhost:8080/q/health/ready || {
+#               #echo "::error::Readiness check failed"
+#               #exit 1
+#             #}
+          
+#           #echo "::endgroup::"
+#           #echo "::notice::✅ Health checks passed"
+
+#       #- name: Smoke tests
+#         #id: smoke_tests
+#         #if: success()
+#         #timeout-minutes: 2
+#         #continue-on-error: true
+#         #run: |
+#           #echo "::group::Running smoke tests"
+          
+#           #POD=$(kubectl get pod -n ${{ steps.vars.outputs.namespace }} \
+#             #-l app.kubernetes.io/name=workflow-engine \
+#             #-o jsonpath='{.items[0].metadata.name}')
+          
+#           ## Test metrics endpoint
+#           #echo "Testing /q/metrics..."
+#           #kubectl exec -n ${{ steps.vars.outputs.namespace }} $POD -- \
+#             #curl -s http://localhost:8080/q/metrics | head -20
+          
+#           #echo "::endgroup::"
+#           #echo "::notice::✅ Smoke tests passed"
+
+#       #- name: Deployment summary
+#         #if: success()
+#         #run: |
+#           #echo "::notice::========================================="
+#           #echo "::notice::✅ Deployment Successful!"
+#           #echo "::notice::========================================="
+#           #echo "::notice::Environment: ${{ steps.vars.outputs.environment }}"
+#           #echo "::notice::Namespace: ${{ steps.vars.outputs.namespace }}"
+#           #echo "::notice::Image: ${{ needs.build.outputs.full_image }}"
+#           #echo "::notice::URL: ${{ steps.vars.outputs.url }}"
+#           #echo "::notice::Triggered by: ${{ github.actor }}"
+#           #echo "::notice::Commit: ${{ github.sha }}"
+#           #echo "::notice::========================================="
+          
+#           ## Show deployment info
+#           #helm list -n ${{ steps.vars.outputs.namespace }}
+          
+#           #echo ""
+#           #echo "Pod details:"
+#           #kubectl get pods -n ${{ steps.vars.outputs.namespace }} \
+#             #-l app.kubernetes.io/name=workflow-engine \
+#             #-o wide
+
+#       #- name: Rollback on failure
+#         #if: failure() && steps.deployment.outcome == 'success'
+#         #run: |
+#           #echo "::error::========================================="
+#           #echo "::error::❌ Deployment validation failed"
+#           #echo "::error::Initiating automatic rollback"
+#           #echo "::error::========================================="
+          
+#           #echo "::group::Rollback"
+#           #helm rollback workflow-engine -n ${{ steps.vars.outputs.namespace }}
+#           #echo "::endgroup::"
+          
+#           #echo "::error::Rollback complete"
+#           #exit 1
+
+#       #- name: Post deployment logs
+#         #if: always()
+#         #run: |
+#           #echo "::group::Recent logs"
+#           #kubectl logs -n ${{ steps.vars.outputs.namespace }} \
+#             #-l app.kubernetes.io/name=workflow-engine \
+#             #--tail=50 || echo "No logs available"
+#           #echo "::endgroup::"
+
+#   #notify:
+#     #name: Notify
+#     #needs: [build, deploy]
+#     #if: always() && needs.deploy.result != 'skipped'
+#     #runs-on: ubuntu-latest
+    
+#     #steps:
+#       #- name: Deployment status
+#         #run: |
+#           #if [ "${{ needs.deploy.result }}" = "success" ]; then
+#             #echo "::notice::✅ Workflow Engine deployed successfully to ${{ needs.build.outputs.environment }}"
+#           #else
+#             #echo "::error::❌ Workflow Engine deployment failed"
+#           #fi

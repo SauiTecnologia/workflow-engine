@@ -1,0 +1,58 @@
+# ========================================
+# Development Environment Overrides
+# ========================================
+
+# Image tag for development
+image:
+  registry: registry.digitalocean.com/saui-main-registry
+  tag: "${IMAGE_TAG}:latest"
+  pullPolicy: Always
+
+# Development environment variables
+env:
+  APP_ENV: "development"
+  QUARKUS_PROFILE: "dev"
+  QUARKUS_LOG_LEVEL: "DEBUG"
+  LOG_LEVEL: "DEBUG"
+  HIBERNATE_SHOW_SQL: "true"
+  
+  # Keycloak Development
+  KEYCLOAK_AUTH_SERVER_URL: "https://auth.apporte.work/realms/development"
+  KEYCLOAK_CLIENT_ID: "workflow-engine-dev"
+  KEYCLOAK_REALM: "development"
+  
+  # CORS for development
+  CORS_ORIGINS: "http://localhost:3000,http://localhost:8080,https://app.apporte.dev"
+
+# Resources for development (lower limits)
+resources:
+  requests:
+    memory: "1Gi"
+    cpu: "1000m"
+  limits:
+    memory: "2Gi"
+    cpu: "2000m"
+
+# Ingress for development
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: api.apporte.dev
+      paths:
+        - path: /api/workflow
+          pathType: Prefix
+  tls:
+    - secretName: workflow-engine-dev-tls
+      hosts:
+        - api.apporte.dev
+
+# ⚠️  Secrets MUST be injected via --set flags
+secrets:
+  database:
+    password: "" # DO NOT commit real values
+  keycloak:
+    clientSecret: "" # DO NOT commit real values

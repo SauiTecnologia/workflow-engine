@@ -1,0 +1,218 @@
+# ========================================
+# Default Values for Workflow Engine
+# ========================================
+
+# ----------------------------------------
+# Image Configuration
+# ----------------------------------------
+image:
+  registry: registry.digitalocean.com/saui-main-registry
+  repository: workflow-engine
+  tag: "${IMAGE_TAG}:latest"
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: saui-main-registry
+nameOverride: ""
+fullnameOverride: ""
+
+# ----------------------------------------
+# Service Account
+# ----------------------------------------
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+# ----------------------------------------
+# Security Context
+# ----------------------------------------
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+# ----------------------------------------
+# Deployment Configuration
+# ----------------------------------------
+replicaCount: 1
+
+# Node Selector
+nodeSelector: {}
+
+# Tolerations
+tolerations: []
+
+# Affinity
+affinity: {}
+
+# Pod resource limits
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "250m"
+  limits:
+    memory: "1Gi"
+    cpu: "500m"
+
+# ----------------------------------------
+# Service Configuration
+# ----------------------------------------
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+# ----------------------------------------
+# Ingress Configuration
+# ----------------------------------------
+ingress:
+  enabled: false
+  className: nginx
+  host: ""
+  annotations: {}
+  # Example annotations:
+  #   nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  #   nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+  #   nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+  #   cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  # tls: []
+  # Example TLS configuration:
+  # - secretName: workflow-engine-tls
+  #   hosts:
+  #     - api.apporte.work
+
+# ----------------------------------------
+# Environment Variables (Non-Sensitive)
+# ----------------------------------------
+env:
+  # Application
+  APP_ENV: "development"
+  APP_NAME: "workflow-service"
+  APP_VERSION: "1.0.0"
+  
+  # Server
+  SERVER_PORT: "8080"
+  QUARKUS_PROFILE: "dev"
+  QUARKUS_LOG_LEVEL: "DEBUG"
+  
+  # Database
+  DB_HOST: "db.rpkqbesfgjdeolketoug.supabase.co"
+  DB_PORT: "5432"
+  DB_NAME: "postgres"
+  DB_USERNAME: "workflow_backend"
+  DB_KIND: "postgresql"
+  DB_INITIAL_SIZE: "5"
+  DB_MAX_SIZE: "20"
+  HIBERNATE_GENERATION: "update"
+  HIBERNATE_SHOW_SQL: "true"
+  
+  # Keycloak
+  KEYCLOAK_AUTH_SERVER_URL: "https://auth.apporte.work/realms/development"
+  KEYCLOAK_CLIENT_ID: "workflow-engine-dev"
+  KEYCLOAK_REALM: "development"
+  
+  # CORS
+  CORS_ORIGINS: "http://localhost:3000,http://localhost:5173"
+  
+  # External Services
+  NOTIFICATION_SERVICE_URL: "http://notification-engine.apporte-notification-dev.svc.cluster.local:8082"
+  
+  # Logging
+  LOG_LEVEL: "DEBUG"
+  LOG_FILE_PATH: "/var/log/workflow"
+
+# ----------------------------------------
+# Secrets (Sensitive Data)
+# ----------------------------------------
+# ⚠️  SECURITY WARNING: DO NOT hardcode secrets here!
+# Secrets MUST be provided via:
+#   1. GitHub Actions secrets (recommended)
+#   2. existingSecret reference
+#   3. External secret management (Sealed Secrets, External Secrets Operator)
+#
+# For GitHub Actions workflow, secrets are injected via --set flags:
+#   helm upgrade --install ... \
+#     --set secrets.database.password="${{ secrets.DB_PASSWORD }}" \
+#     --set secrets.keycloak.clientSecret="${{ secrets.KEYCLOAK_CLIENT_SECRET }}"
+# ----------------------------------------
+secrets:
+  database:
+    password: "" # Injected via --set from GitHub Actions or CI/CD
+  keycloak:
+    clientSecret: "" # Injected via --set from GitHub Actions or CI/CD
+
+# ----------------------------------------
+# Health Check Configuration
+# ----------------------------------------
+healthCheck:
+  liveness:
+    enabled: true
+    path: /q/health/live
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readiness:
+    enabled: true
+    path: /q/health/ready
+    initialDelaySeconds: 30
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 3
+  startup:
+    enabled: true
+    path: /q/health/ready
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 30
+
+# ----------------------------------------
+# Persistence (Optional - for logs/data)
+# ----------------------------------------
+persistence:
+  enabled: false
+  mountPath: /deployments/logs
+  accessModes:
+    - ReadWriteOnce
+  size: 5Gi
+  storageClass: "" # Leave empty for default storage class
+
+# ----------------------------------------
+# Autoscaling (Optional)
+# ----------------------------------------
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+# ----------------------------------------
+# Pod Disruption Budget (Optional)
+# ----------------------------------------
+podDisruptionBudget:
+  enabled: false
+  minAvailable: 1
+
+# ----------------------------------------
+# Service Monitor (Prometheus)
+# ----------------------------------------
+serviceMonitor:
+  enabled: false
+  interval: 30s
+  path: /q/metrics
+
+# ----------------------------------------
+# Existing Secret (Optional)
+# ----------------------------------------
+# If you manage secrets externally (e.g., via Sealed Secrets),
+# provide the secret name here
+existingSecret: ""

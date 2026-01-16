@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "workflow-engine.fullname" . }}
+  labels:
+    {{- include "workflow-engine.labels" . | nindent 4 }}
+data:
+  # Application Configuration
+  APP_ENV: {{ .Values.env.APP_ENV | quote }}
+  APP_NAME: {{ .Values.env.APP_NAME | quote }}
+  APP_VERSION: {{ .Values.env.APP_VERSION | quote }}
+  
+  # Server Configuration
+  SERVER_PORT: {{ .Values.env.SERVER_PORT | quote }}
+  QUARKUS_PROFILE: {{ .Values.env.QUARKUS_PROFILE | quote }}
+  QUARKUS_LOG_LEVEL: {{ .Values.env.QUARKUS_LOG_LEVEL | quote }}
+  
+  # Database Configuration
+  DB_HOST: {{ .Values.env.DB_HOST | quote }}
+  DB_PORT: {{ .Values.env.DB_PORT | quote }}
+  DB_NAME: {{ .Values.env.DB_NAME | quote }}
+  DB_USERNAME: {{ .Values.env.DB_USERNAME | quote }}
+  DB_KIND: {{ .Values.env.DB_KIND | quote }}
+  DB_INITIAL_SIZE: {{ .Values.env.DB_INITIAL_SIZE | quote }}
+  DB_MAX_SIZE: {{ .Values.env.DB_MAX_SIZE | quote }}
+  DB_JDBC_URL: "jdbc:postgresql://{{ .Values.env.DB_HOST }}:{{ .Values.env.DB_PORT }}/{{ .Values.env.DB_NAME }}?sslmode=require"
+  HIBERNATE_GENERATION: {{ .Values.env.HIBERNATE_GENERATION | quote }}
+  HIBERNATE_SHOW_SQL: {{ .Values.env.HIBERNATE_SHOW_SQL | quote }}
+  
+  # Keycloak Configuration
+  KEYCLOAK_AUTH_SERVER_URL: {{ .Values.env.KEYCLOAK_AUTH_SERVER_URL | quote }}
+  KEYCLOAK_CLIENT_ID: {{ .Values.env.KEYCLOAK_CLIENT_ID | quote }}
+  KEYCLOAK_REALM: {{ .Values.env.KEYCLOAK_REALM | quote }}
+  
+  # CORS Configuration
+  CORS_ORIGINS: {{ .Values.env.CORS_ORIGINS | quote }}
+  
+  # External Services
+  NOTIFICATION_SERVICE_URL: {{ .Values.env.NOTIFICATION_SERVICE_URL | quote }}
+  WORKFLOW_API_URL: "http://{{ include "workflow-engine.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.port }}"
+  
+  # Logging
+  LOG_LEVEL: {{ .Values.env.LOG_LEVEL | quote }}
+  LOG_FILE_PATH: {{ .Values.env.LOG_FILE_PATH | quote }}
