@@ -106,7 +106,7 @@ public class MoveCardCommand implements WorkflowCommand {
             );
             
             Log.info("Card " + card.id + " moved from column " + fromColumnId + 
-                    " to " + toColumnId + " by user " + userContext.getId());
+                    " to " + toColumnId + " by user " + userContext.id());
             
         } catch (WorkflowException e) {
             result = new CommandResult(false, e.getMessage());

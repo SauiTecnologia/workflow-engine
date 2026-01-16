@@ -23,6 +23,9 @@ public class Pipeline extends PanacheEntity {
     @Column(name = "context_id", nullable = false)
     public String contextId;    // ex: "edital-123"
     
+    @Column(name = "organization_id")
+    public String organizationId;
+    
     @Column(name = "allowed_roles_view", columnDefinition = "jsonb")
     @JdbcTypeCode(SqlTypes.JSON)
     public Map<String, Object> allowedRolesView;
@@ -46,5 +49,13 @@ public class Pipeline extends PanacheEntity {
     @PreUpdate
     void onUpdate() {
         updatedAt = LocalDateTime.now();
+    }
+    
+    public String getOrganizationId() {
+        return organizationId;
+    }
+    
+    public void setOrganizationId(String organizationId) {
+        this.organizationId = organizationId;
     }
 }

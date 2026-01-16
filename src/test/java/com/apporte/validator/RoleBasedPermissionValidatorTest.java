@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,8 +25,22 @@ class RoleBasedPermissionValidatorTest {
     @BeforeEach
     void setUp() {
         validator = new RoleBasedPermissionValidator();
-        userWithRole = new UserContext("1", "João Silva", List.of("APPROVER", "EDITOR"));
-        userWithoutRole = new UserContext("2", "Maria Santos", List.of("VIEWER"));
+        userWithRole = new UserContext(
+            "1",
+            "joao@example.com",
+            "João Silva",
+            "org-123",
+            "Organização A",
+            Set.of("APPROVER", "EDITOR")
+        );
+        userWithoutRole = new UserContext(
+            "2",
+            "maria@example.com",
+            "Maria Santos",
+            "org-123",
+            "Organização A",
+            Set.of("VIEWER")
+        );
         allowedRoles = List.of("APPROVER", "ADMIN");
     }
     
@@ -98,8 +113,12 @@ class RoleBasedPermissionValidatorTest {
     @DisplayName("Edge case: deve reconhecer múltiplas roles do usuário")
     void testMultipleRoles_OneMatchesAllowed_ReturnsTrue() {
         UserContext userWithMultipleRoles = new UserContext(
-            "3", "Admin User", 
-            List.of("VIEWER", "EDITOR", "APPROVER")
+            "3",
+            "multi@example.com",
+            "Multi User",
+            "org-123",
+            "Organização A",
+            Set.of("EDITOR", "VIEWER", "APPROVER")
         );
         boolean result = validator.canMoveOut(userWithMultipleRoles, List.of("APPROVER"));
         assertTrue(result, "Deve encontrar APPROVER na lista de roles");
@@ -108,7 +127,14 @@ class RoleBasedPermissionValidatorTest {
     @Test
     @DisplayName("Edge case: deve manejar usuário com lista vazia de roles")
     void testUserWithEmptyRoles_AndAllowedRolesNotEmpty_ReturnsFalse() {
-        UserContext userWithoutRoles = new UserContext("5", "Guest", List.of());
+        UserContext userWithoutRoles = new UserContext(
+            "5",
+            "guest@example.com",
+            "Guest User",
+            "org-123",
+            "Organização A",
+            Set.of()
+        );
         boolean result = validator.canMoveOut(userWithoutRoles, allowedRoles);
         assertFalse(result, "Usuário sem roles não deve ter permissão");
     }

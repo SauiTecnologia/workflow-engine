@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Testes para MoveCardRequest DTO.
- * Valida comportamento básico e getters/setters.
+ * Testes para MoveCardRequest DTO (record).
+ * Valida comportamento básico e acessores.
  */
 @DisplayName("MoveCardRequest DTO")
 class MoveCardRequestTest {
@@ -16,55 +16,40 @@ class MoveCardRequestTest {
     @DisplayName("deve criar validamente com parâmetros válidos")
     void testConstruction_WithValidData_CreatesSuccessfully() {
         // Act
-        MoveCardRequest request = new MoveCardRequest("1", "2");
+        var request = new MoveCardRequest("1", "2");
         
         // Assert
-        assertEquals("1", request.getFromColumnId());
-        assertEquals("2", request.getToColumnId());
+        assertEquals("1", request.fromColumnId());
+        assertEquals("2", request.toColumnId());
     }
     
     @Test
     @DisplayName("deve aceitar null no construtor")
     void testConstruction_WithNull_CreatesWithNull() {
         // Act
-        MoveCardRequest request = new MoveCardRequest(null, "2");
+        var request = new MoveCardRequest(null, "2");
         
         // Assert
-        assertNull(request.getFromColumnId());
-        assertEquals("2", request.getToColumnId());
+        assertNull(request.fromColumnId());
+        assertEquals("2", request.toColumnId());
     }
     
     @Test
     @DisplayName("deve aceitar vazio no construtor")
     void testConstruction_WithBlank_CreatesWithBlank() {
         // Act
-        MoveCardRequest request = new MoveCardRequest("", "2");
+        var request = new MoveCardRequest("", "2");
         
         // Assert
-        assertEquals("", request.getFromColumnId());
-        assertEquals("2", request.getToColumnId());
-    }
-    
-    @Test
-    @DisplayName("deve usar setter corretamente")
-    void testSetters_UpdateFieldsCorrectly() {
-        // Arrange
-        MoveCardRequest request = new MoveCardRequest("1", "2");
-        
-        // Act
-        request.setFromColumnId("10");
-        request.setToColumnId("20");
-        
-        // Assert
-        assertEquals("10", request.getFromColumnId());
-        assertEquals("20", request.getToColumnId());
+        assertEquals("", request.fromColumnId());
+        assertEquals("2", request.toColumnId());
     }
     
     @Test
     @DisplayName("deve gerar toString corretamente")
     void testToString_GeneratesCorrectly() {
         // Arrange
-        MoveCardRequest request = new MoveCardRequest("1", "2");
+        var request = new MoveCardRequest("1", "2");
         
         // Act
         String str = request.toString();
@@ -78,38 +63,48 @@ class MoveCardRequestTest {
     }
     
     @Test
-    @DisplayName("deve construir com construtor padrão")
-    void testDefaultConstructor_CreatesValidObject() {
-        // Act
-        MoveCardRequest request = new MoveCardRequest();
-        request.setFromColumnId("1");
-        request.setToColumnId("2");
-        
-        // Assert
-        assertEquals("1", request.getFromColumnId());
-        assertEquals("2", request.getToColumnId());
-    }
-    
-    @Test
     @DisplayName("deve criar com valores iguais")
     void testConstruction_WithSameValues_CreatesSuccessfully() {
         // Act
-        MoveCardRequest request = new MoveCardRequest("5", "5");
+        var request = new MoveCardRequest("5", "5");
         
         // Assert
-        assertEquals("5", request.getFromColumnId());
-        assertEquals("5", request.getToColumnId());
+        assertEquals("5", request.fromColumnId());
+        assertEquals("5", request.toColumnId());
     }
     
     @Test
-    @DisplayName("deve aceitar valores numéricos grandes")
-    void testConstruction_WithLargeNumbers_CreatesSuccessfully() {
-        // Act
-        MoveCardRequest request = new MoveCardRequest("999999999", "888888888");
+    @DisplayName("deve implementar equals corretamente")
+    void testEquals_WithSameValues_ReturnsTrue() {
+        // Arrange
+        var request1 = new MoveCardRequest("1", "2");
+        var request2 = new MoveCardRequest("1", "2");
         
         // Assert
-        assertEquals("999999999", request.getFromColumnId());
-        assertEquals("888888888", request.getToColumnId());
+        assertEquals(request1, request2);
+    }
+    
+    @Test
+    @DisplayName("deve implementar hashCode corretamente")
+    void testHashCode_WithSameValues_ReturnsSameHash() {
+        // Arrange
+        var request1 = new MoveCardRequest("1", "2");
+        var request2 = new MoveCardRequest("1", "2");
+        
+        // Assert
+        assertEquals(request1.hashCode(), request2.hashCode());
+    }
+    
+    @Test
+    @DisplayName("record deve ser imutável")
+    void testImmutability() {
+        // Arrange
+        var request = new MoveCardRequest("1", "2");
+        
+        // Assert - record não tem setters
+        assertEquals("1", request.fromColumnId());
+        assertEquals("2", request.toColumnId());
+        // Não há como modificar os valores após criação
     }
 }
 

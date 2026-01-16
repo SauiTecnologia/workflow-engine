@@ -74,7 +74,7 @@ class ConfigurableTransitionValidator implements TransitionValidator {
                 (List<String>) transitionConfig.get().get("allowedRoles");
             
             if (allowedRoles != null && !allowedRoles.isEmpty()) {
-                if (!user.hasAnyRole(allowedRoles)) {
+                if (!user.hasAnyRole(allowedRoles.toArray(new String[0]))) {
                     throw new InvalidTransitionException(
                         String.format(
                             "User does not have permission for transition '%s' -> '%s'. Required roles: %s",

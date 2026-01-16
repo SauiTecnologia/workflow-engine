@@ -27,20 +27,26 @@ import java.util.List;
 @ApplicationScoped
 public class WorkflowService {
     
-    @Inject
-    private PipelineRepository pipelineRepository;
+    private final PipelineRepository pipelineRepository;
+    private final PipelineColumnRepository columnRepository;
+    private final PipelineCardRepository cardRepository;
+    private final CommandExecutor commandExecutor;
+    private final WorkflowEventManager eventManager;
     
     @Inject
-    private PipelineColumnRepository columnRepository;
-    
-    @Inject
-    private PipelineCardRepository cardRepository;
-    
-    @Inject
-    private CommandExecutor commandExecutor;
-    
-    @Inject
-    private WorkflowEventManager eventManager;
+    public WorkflowService(
+        PipelineRepository pipelineRepository,
+        PipelineColumnRepository columnRepository,
+        PipelineCardRepository cardRepository,
+        CommandExecutor commandExecutor,
+        WorkflowEventManager eventManager
+    ) {
+        this.pipelineRepository = pipelineRepository;
+        this.columnRepository = columnRepository;
+        this.cardRepository = cardRepository;
+        this.commandExecutor = commandExecutor;
+        this.eventManager = eventManager;
+    }
     
     /**
      * Carrega um pipeline com todas suas colunas e cards.
@@ -134,7 +140,7 @@ public class WorkflowService {
         MoveCardCommand command = new MoveCardCommand(
             card,
             card.columnId,
-            Long.parseLong(request.getToColumnId()),
+            Long.parseLong(request.toColumnId()),
             userContext
         );
         
@@ -146,20 +152,20 @@ public class WorkflowService {
         }
         
         // 5. Disparar evento para notificações
-        PipelineColumn toColumn = columnRepository.findById(Long.parseLong(request.getToColumnId()));
+        PipelineColumn toColumn = columnRepository.findById(Long.parseLong(request.toColumnId()));
         eventManager.fireCardMoved(
             new CardMovedEvent(
                 card.id.toString(),
                 pipelineId.toString(),
                 card.columnId.toString(),
-                request.getToColumnId(),
+                request.toColumnId(),
                 card.entityType,
                 card.entityId,
                 userContext
             )
         );
         
-        Log.infof("Card %d movido com sucesso para coluna %s", cardId, request.getToColumnId());
+        Log.infof("Card %d movido com sucesso para coluna %s", cardId, request.toColumnId());
         
         // 6. Retornar resposta
         return mapToResponse(card);

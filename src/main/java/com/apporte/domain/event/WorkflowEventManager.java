@@ -13,10 +13,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 @ApplicationScoped
 public class WorkflowEventManager {
-    private List<WorkflowEventListener> listeners = new CopyOnWriteArrayList<>();
+    private final List<WorkflowEventListener> listeners = new CopyOnWriteArrayList<>();
+    private final Event<CardMovedEvent> cardMovedEvent;
 
     @Inject
-    Event<CardMovedEvent> cardMovedEvent;
+    public WorkflowEventManager(Event<CardMovedEvent> cardMovedEvent) {
+        this.cardMovedEvent = cardMovedEvent;
+    }
 
     /**
      * Inscreve um listener

@@ -1,129 +1,93 @@
 package com.apporte.domain.model;
 
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 
 /**
- * Contexto do usuário extraído do JWT do Supabase.
- * Contém informações de autenticação e autorização do usuário.
+ * Contexto do usuário para o domínio de negócio.
+ * Mantido para compatibilidade com código existente.
+ * 
+ * <p>Pode ser construído a partir do KeycloakUserContext ou usado standalone.
+ * 
+ * @since 2.0
  */
-public class UserContext {
-    private String id;
-    private String email;
-    private String name;
-    private List<String> roles;
-
+public record UserContext(
+    String id,
+    String email,
+    String name,
+    String organizationId,
+    String organizationName,
+    Set<String> roles
+) {
     /**
-     * Construtor padrão para deserialização.
+     * Compact constructor with validation.
      */
-    public UserContext() {
-        this.roles = List.of();
+    public UserContext {
+        Objects.requireNonNull(id, "User ID cannot be null");
+        Objects.requireNonNull(email, "Email cannot be null");
+        Objects.requireNonNull(name, "Name cannot be null");
+        roles = roles != null ? Set.copyOf(roles) : Set.of();
     }
-
+    
     /**
-     * Construtor com ID, nome e roles.
-     * Usado em testes e inicialização.
-     *
-     * @param id ID do usuário
-     * @param name Nome do usuário
-     * @param roles Lista de roles do usuário
+     * Creates UserContext from KeycloakUserContext.
+     * 
+     * @param keycloakContext the Keycloak user context
+     * @return a new UserContext instance
      */
-    public UserContext(String id, String name, List<String> roles) {
-        this.id = Objects.requireNonNull(id, "ID do usuário não pode ser null");
-        this.name = Objects.requireNonNull(name, "Nome do usuário não pode ser null");
-        this.roles = roles != null ? roles : List.of();
+    public static UserContext fromKeycloak(com.apporte.security.KeycloakUserContext keycloakContext) {
+        return new UserContext(
+            keycloakContext.getUserId(),
+            keycloakContext.getEmail(),
+            keycloakContext.getFullName(),
+            keycloakContext.getOrganizationId().orElse(null),
+            keycloakContext.getOrganizationName().orElse(null),
+            keycloakContext.getRoles()
+        );
     }
-
+    
     /**
-     * Construtor completo com todos os campos.
-     *
-     * @param id ID do usuário
-     * @param email Email do usuário
-     * @param name Nome do usuário
-     * @param roles Lista de roles do usuário
+     * Gets organization ID as Optional.
      */
-    public UserContext(String id, String email, String name, List<String> roles) {
-        this.id = Objects.requireNonNull(id, "ID do usuário não pode ser null");
-        this.email = email;
-        this.name = Objects.requireNonNull(name, "Nome do usuário não pode ser null");
-        this.roles = roles != null ? roles : List.of();
+    public Optional<String> organization() {
+        return Optional.ofNullable(organizationId);
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles != null ? roles : List.of();
-    }
-
+    
     /**
-     * Verifica se o usuário tem uma role específica.
-     *
-     * @param role Role a verificar
-     * @return true se o usuário tem a role
+     * Checks if user has a specific role.
      */
     public boolean hasRole(String role) {
         return roles.contains(role);
     }
-
+    
     /**
-     * Verifica se o usuário tem pelo menos uma das roles fornecidas.
-     *
-     * @param rolesCheck Lista de roles a verificar
-     * @return true se o usuário tem pelo menos uma das roles
+     * Checks if user has any of the specified roles.
      */
-    public boolean hasAnyRole(List<String> rolesCheck) {
-        return rolesCheck.stream().anyMatch(this::hasRole);
+    public boolean hasAnyRole(String... roleNames) {
+        return roles.stream().anyMatch(Set.of(roleNames)::contains);
     }
-
-    @Override
-    public String toString() {
-        return "UserContext{" +
-                "id='" + id + '\'' +
-                ", email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                ", roles=" + roles +
-                '}';
+    
+    /**
+     * Checks if user belongs to an organization.
+     */
+    public boolean hasOrganization() {
+        return organizationId != null && !organizationId.isBlank();
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserContext that = (UserContext) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(email, that.email) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(roles, that.roles);
+    
+    /**
+     * Checks if user is a system admin.
+     */
+    public boolean isSystemAdmin() {
+        return hasRole("system-admin");
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, email, name, roles);
+    
+    /**
+     * Checks if user is an organization admin.
+     */
+    public boolean isOrgAdmin() {
+        return hasRole("org-admin");
     }
+    
+    // Legacy compatibility - records auto-generate getId(), getEmail(), getName(), getRoles()
 }

@@ -47,7 +47,7 @@ public class RoleBasedPermissionValidator implements PermissionValidator {
         }
         
         // Verificar se ao menos uma role do usuário está na lista permitida
-        return user.getRoles().stream()
+        return user.roles().stream()
             .anyMatch(allowedRoles::contains);
     }
 }
